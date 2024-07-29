@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work</title>
+    <style>
+        .ad-button {
+            color: blue;
+            cursor: pointer;
+        }
+        .submit-button {
+            color: lightgray;
+            cursor: not-allowed;
+        }
+        .submit-button.active {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Work</h1>
+    <p>Gold Mine Bot-এ আপনাকে স্বাগতম🌹। এখানে আপনি এড দেখার মাধ্যমে ৫ থেকে ২০ টাকা পর্যন্ত ইনকাম করতে পারবেন। এডে ক্লিক করার পর ১৫ সেকেন্ড অপেক্ষা করতে হবে। সঠিক ভাবে কাজ করলে অবশ্যই পেমেন্ট পাবেন। ১৫ সেকেন্ডের আগে এড থেকে ব্যাক করলে ব্যালেন্স যুক্ত হবে অথচ পেমেন্ট পাবেন না।</p>
+    <p>প্রতিটি এডে ক্লিক করার পর আপনাকে অবশ্যই ১৫ সেকেন্ড অপেক্ষা করতে হবে</p>
+    
+    <div id="ads-container">
+        <div class="ad">
+            <p>AD Number 1:</p>
+            <button class="ad-button" onclick="showAd(1)">Click here</button>
+            <button class="submit-button" id="submit1" disabled>Submit</button>
+        </div>
+        <div class="ad">
+            <p>AD Number 2:</p>
+            <button class="ad-button" onclick="showAd(2)">Click here</button>
+            <button class="submit-button" id="submit2" disabled>Submit</button>
+        </div>
+    </div>
+    
+    <script>
+        function showAd(adNumber) {
+            alert('Ad Number ' + adNumber + ' clicked. Please wait 15 seconds.');
+            setTimeout(() => {
+                const submitButton = document.getElementById('submit' + adNumber);
+                submitButton.disabled = false;
+                submitButton.classList.add('active');
+                submitButton.onclick = function() {
+                    alert('Ad Number ' + adNumber + ' submitted. You earned money.');
+                    submitButton.parentElement.style.display = 'none';
+                };
+            }, 15000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Account</title>
+</head>
+<body>
+    <h1>Activate Account</h1>
+    <p>Account Active করতে অবশ্যই ৫০ টাকা এড ফি দিতে হবে। নিচের নাম্বারটি কপি করে ৫০ টাকা সেন্ডমানি করুন। বিকাশ বা নগদ।</p>
+    <div>
+        <input type="text" value="01817190612" id="phone_number" readonly>
+        <button onclick="copyNumber()">Copy Number</button>
+    </div>
+    <br>
+    <form action="/activate" method="post">
+        <label for="transaction_id">Transaction ID:</label>
+        <input type="text" id="transaction_id" name="transaction_id"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function copyNumber() {
+            const copyText = document.getElementById("phone_number");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Copied the number: " + copyText.value);
+        }
+    </script>
+</body>
+</html>

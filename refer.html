@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Refer</title>
+</head>
+<body>
+    <h1>My Refer</h1>
+    <p>প্রতিটি সফল রেফারের জন্য আপনি পাবেন ৭৫ টাকা। আপনার লিংকের মাধ্যমে কেও এড হয়ে Account Active করলে আপনি পাবেন ২৫ টাকা এবং তিনি প্রিমিয়াম মেম্বারশিপ জয়েন করলে আপনি পাবেন ৫০ টাকা।</p>
+    <p>Here is your referral link and code:</p>
+    <div>
+        <label for="referral_link">Referral Link:</label>
+        <input type="text" id="referral_link" value="your_unique_referral_link_here" readonly>
+        <button onclick="copyReferralLink()">Copy Link</button>
+    </div>
+    <div>
+        <label for="referral_code">Referral Code:</label>
+        <input type="text" id="referral_code" value="your_unique_referral_code_here" readonly>
+        <button onclick="copyReferralCode()">Copy Code</button>
+    </div>
+    <h2>Referred Members</h2>
+    <ul id="referred_members">
+        <!-- Example entries -->
+        <li>
+            <p>Name: John Doe</p>
+            <p>Status: General</p>
+            <p>Joining Date: 01/01/2024</p>
+            <p>Income from Refer: 25 Taka</p>
+        </li>
+        <!-- More referred members will be dynamically listed here -->
+    </ul>
+    <script>
+        function copyReferralLink() {
+            const copyText = document.getElementById("referral_link");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Referral link copied: " + copyText.value);
+        }
+
+        function copyReferralCode() {
+            const copyText = document.getElementById("referral_code");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Referral code copied: " + copyText.value);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw</title>
+</head>
+<body>
+    <h1>Withdraw</h1>
+    <p>Minimum withdrawal amount is 25 Taka. You will receive your payment within 1 to 24 hours of the withdrawal request.</p>
+    <p>Your Balance: <span id="balance">100 Taka</span></p>
+    <form id="withdraw-form" onsubmit="submitWithdraw(event)">
+        <label for="withdraw_method">Select Method:</label>
+        <select id="withdraw_method" name="method">
+            <option value="bikash">Bikash</option>
+            <option value="nagad">Nagad</option>
+        </select><br><br>
+        <label for="phone_number">Enter Your Bikash or Nagad Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number"><br><br>
+        <button type="submit" id="withdraw_button" style="background-color: pink;">Withdraw</button>
+    </form>
+    <p id="error_message" style="color: red;"></p>
+    <script>
+        function submitWithdraw(event) {
+            event.preventDefault();
+            const balance = parseInt(document.getElementById('balance').innerText);
+            const withdrawAmount = 25;
+            if (balance < withdrawAmount) {
+                document.getElementById('error_message').innerText = "Don't have enough money.";
+                return;
+            }
+            const phoneNumber = document.getElementById('phone_number').value;
+            if (!phoneNumber) {
+                document.getElementById('error_message').innerText = "Please enter a phone number.";
+                return;
+            }
+            // Perform the withdrawal request here
+            document.getElementById('withdraw_button').style.backgroundColor = "green";
+            alert('Withdrawal request submitted successfully.');
+        }
+    </script>
+</body>
+</html>
